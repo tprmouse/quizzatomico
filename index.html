@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Perguntas Atômicas!</title>
+
+  <!-- Fontes do Google -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: url('01.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      text-align: center;
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    }
+
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3em;
+      background: linear-gradient(to right, #ffd700, #ffcc33);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .gif-atom {
+      width: 120px;
+      height: 120px;
+    }
+
+    .card-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px;
+      gap: 30px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.6), 0 0 30px rgba(255, 215, 0, 0.2);
+      border: 2px solid #ffd700;
+      width: 90%;
+      max-width: 800px;
+      padding: 30px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.4s ease-in-out;
+      text-align: left;
+      color: #333;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.9), 0 0 40px rgba(255, 215, 0, 0.4);
+    }
+
+    .question {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.3em;
+      font-weight: 700;
+      background: linear-gradient(to right, #1e3c72, #2a5298);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+      margin-bottom: 5px;
+    }
+
+    footer {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 10px;
+      margin-top: 40px;
+      font-style: italic;
+      color: #fff;
+    }
+
+    /* POPUP */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(5px);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .popup-content {
+      background: #fff;
+      color: #000;
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 600px;
+      width: 90%;
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+      text-align: center;
+      font-size: 1.2em;
+      animation: scaleUp 0.5s ease;
+    }
+
+    .popup-content button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #ffd700;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    .popup-content button:hover {
+      background: #ffcc00;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    @keyframes scaleUp {
+      from {transform: scale(0.8);}
+      to {transform: scale(1);}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>
+      <img src="03.jpg" alt="Átomo dourado" class="gif-atom">
+      Perguntas Atômicas!
+    </h1>
+    <p>Feito integralmente para os alunos dos 9º anos do professor Danilo.</p>
+  </header>
+
+  <main class="card-container">
+    <div class="card" onclick="showPopup('R: c) Demócrito.')">
+      <div class="question">01. Qual dos citados abaixo denominou a menor parte, indivisível, da matéria como “átomo”?</div>
+    </div>
+
+    <div class="card" onclick="showPopup('R: d) Divisível.')">
+      <div class="question">02. Segundo Dalton, qual destas não era uma característica do átomo?</div>
+    </div>
+
+    <div class="card" onclick="showPopup('Não. O correto seria: O modelo atômico de Thomson, conhecido como pudim de passas, descreve o átomo como sendo uma massa <strong>positiva</strong> incrustada de cargas <strong>negativas</strong>.')">
+      <div class="question">03. O modelo atômico de Thomson, conhecido como pudim de passas, descreve o átomo como sendo uma massa negativa incrustada de cargas positivas.” Esta afirmação está correta? Se não, corrija o que estiver errado.</div>
+    </div>
+
+    <div class="card" onclick="showPopup('Sim.')">
+      <div class="question">04. Os modelos atômicos foram desenvolvidos ao longo da história para explicar a estrutura e o comportamento dos átomos, está afirmação está correta?</div>
+    </div>
+
+    <div class="card" onclick="showPopup('Sim.')">
+      <div class="question">05. Uma teoria precisa passar pela comunidade científica para ser aceita?</div>
+    </div>
+
+    <div class="card" onclick="showPopup('A menor partícula presente em todas as coisas.')">
+      <div class="question">06. A teoria atômica filosófica foi batizada assim porque "átomo" se refere a:</div>
+    </div>
+
+    <div class="card" onclick="showPopup('1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d⁶')">
+      <div class="question">07. Faça a distribuição eletrônica do elemento ferro (Fe), número atômico 26.</div>
+    </div>
+
+    <div class="card" onclick="showPopup('7 camadas.')">
+      <div class="question">08. Quantas camadas tem um átomo?</div>
+    </div>
+
+    <div class="card" onclick="showPopup('Sim.')">
+      <div class="question">09. As primeiras teorias sobre os átomos surgiram na Grécia Antiga, antes de Cristo. Correto?</div>
+    </div>
+
+    <div class="card" onclick="showPopup('Sim.')">
+      <div class="question">10. É necessário realizar experimentos práticos para consolidar teorias científicas?</div>
+    </div>
+  </main>
+
+  <!-- POPUP HTML -->
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <div id="popup-text">Resposta aqui</div>
+      <button onclick="closePopup()">Voltar para as perguntas</button>
+    </div>
+  </div>
+
+  <footer>
+    <!-- COLE ISSO ACIMA DO <footer> -->
+<section style="padding: 40px 20px; background-color: rgba(0, 0, 0, 0.6); color: #fff;">
+  <h2 style="text-align: center; font-family: 'Orbitron', sans-serif; color: #ffd700;">Criadores do Projeto</h2>
+  <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 30px;">
+    
+    <div style="text-align: center;">
+      <img src="MAICON.jpg" alt="MAICON" style="width: 150px; height: 150px; border-radius: 50%; border: 3px solid #ffd700; box-shadow: 0 0 15px #ffd700;">
+      <p style="margin-top: 10px;"><strong>MAICON GILSON</strong><br><em> Idealizador e Desenvolvedor do projeto</em></p>
+    </div>
+
+    <div style="text-align: center;">
+      <img src="FAGNER.jpg" alt="FAGNER" style="width: 150px; height: 150px; border-radius: 50%; border: 3px solid #ffd700; box-shadow: 0 0 15px #ffd700;">
+      <p style="margin-top: 10px;"><strong>FAGNER</strong><br><em>Idealizador do projeto</em></p>
+    </div>
+
+    <div style="text-align: center;">
+      <img src="LUCAS.jpeg" alt="LUCAS" style="width: 150px; height: 150px; border-radius: 50%; border: 3px solid #ffd700; box-shadow: 0 0 15px #ffd700;">
+      <p style="margin-top: 10px;"><strong>LUCAS</strong><br><em>Idealizador do projeto</em></p>
+    </div>
+
+  </div>
+</section>
+
+  </footer>
+
+  <!-- Áudio para clique -->
+  <audio id="click-sound" src="som01.mp3" preload="auto"></audio>
+
+  <script>
+    function showPopup(answer) {
+      document.getElementById("popup-text").innerHTML = answer;
+      document.getElementById("popup").style.display = "flex";
+      document.getElementById("click-sound").play();
+    }
+
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+  </script>
+</body>
+</html>
